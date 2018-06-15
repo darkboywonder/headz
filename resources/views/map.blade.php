@@ -30,20 +30,7 @@
                     "type": "symbol",
                     "source": {
                         "type": "geojson",
-                        "data": {
-                            "type": "FeatureCollection",
-                            "features": [{
-                                "type": "Feature",
-                                "properties": {
-                                    "description": "<strong>Bob's Barbershop</strong><p><a href=\"http://www.mtpleasantdc.com/makeitmtpleasant\" target=\"_blank\" title=\"Opens in a new window\">bobs.com</a><br>123-456-7890<br>Address here</p>",
-                                    "icon": "theatre"
-                                },
-                                "geometry": {
-                                    "type": "Point",
-                                    "coordinates": [-77.038659, 38.931567]
-                                }
-                            }]
-                        }
+                        "data": '/map.json',
                     },
                     "layout": {
                         "icon-image": "{icon}-15",
