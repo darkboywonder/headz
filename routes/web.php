@@ -12,8 +12,8 @@ Route::get('/map.json', function () {
         return [
             "type" => "Feature",
             "properties" => [
-                "description" => "<strong>" . $barbershop->name . "</strong><p><a href=\"" . $barbershop->url . " target=\"_blank\" title=\"Opens in a new window\">bobs.com</a><br>". $barbershop->phone ."<br>". $barbershop->address ."</p>",
-                "icon" => "theatre"
+                "description" => "<strong>" . $barbershop->name . "</strong><p><a href=\"" . $barbershop->url . " target=\"_blank\" title=\"Opens in a new window\">" . $barbershop->url . "</a><br>". $barbershop->phone ."<br>". $barbershop->address ."</p>",
+                "icon" => "circle"
             ],
             "geometry" => [
                 "type" => "Point",
