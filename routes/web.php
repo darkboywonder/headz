@@ -1,24 +1,30 @@
 <?php
 
+use App\Barbershop;
+
+
 Route::get('/', function () {
     return view('map');
 })->name('map');
 
 Route::get('/map.json', function () {
-    return '{
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "properties": {
-                    "description": "<strong>Bobs Barbershop</strong><p><a href=\"http://www.mtpleasantdc.com/makeitmtpleasant\" target=\"_blank\" title=\"Opens in a new window\">bobs.com</a><br>123-456-7890<br>Address here</p>",
-                    "icon": "theatre"
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-77.038659, 38.931567]
-                }
-            }]
-        }';
+    $barbershops = Barbershop::all()->map(function ($barbershop) {
+        return [
+            "type" => "Feature",
+            "properties" => [
+                "description" => "<strong>" . $barbershop->name . "</strong><p><a href=\"" . $barbershop->url . " target=\"_blank\" title=\"Opens in a new window\">bobs.com</a><br>". $barbershop->phone ."<br>". $barbershop->address ."</p>",
+                "icon" => "theatre"
+            ],
+            "geometry" => [
+                "type" => "Point",
+                "coordinates" => [$barbershop->longitude, $barbershop->latitude]
+            ]
+        ];
+    });
+    return json_encode([
+        "type" => "FeatureCollection",
+        "features" => $barbershops,
+    ]);
 });
 
 // Route::prefix('barbers')->group(function () {

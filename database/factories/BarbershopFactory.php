@@ -12,7 +12,7 @@ $factory->define(Barbershop::class, function (Faker $faker) {
         'city' => $faker->city,
         'state' => $faker->stateAbbr,
         'zip' => $faker->postCode,
-        'latitude' => $faker->latitude(-124.8, -66.9),
-        'longitude' => $faker->longitude(24.39, 49.38),
+        'latitude' => $faker->latitude(24.39, 49.38),
+        'longitude' => $faker->longitude(-124.8, -66.9),
     ];
 });
