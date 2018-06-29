@@ -12,7 +12,7 @@
 
     </head>
     <body>
-        <div id='map' style='width: 100vw; height: 100vh;'></div>
+        <div id='map' style='position: absolute; top:0; bottom:0; left:0; right:0'></div>
 
         <script>
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGFya2JveXdvbmRlciIsImEiOiI2Z0p4dHJjIn0.c__AdDJe7434_xn8ezjQCw';
