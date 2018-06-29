@@ -20,7 +20,7 @@
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGFya2JveXdvbmRlciIsImEiOiI2Z0p4dHJjIn0.c__AdDJe7434_xn8ezjQCw';
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v10',
+                style: 'mapbox://styles/darkboywonder/cjj091uos0cet2rqoy587r1qq',
                 center: [-98.5795, 39.8283],
                 zoom: 4,
             });
