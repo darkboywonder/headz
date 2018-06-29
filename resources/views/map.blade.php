@@ -7,6 +7,7 @@
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
         <title>MAP</title>
 
@@ -14,6 +15,7 @@
     <body>
         <div id='map' style='position: absolute; top:0; bottom:0; left:0; right:0'></div>
 
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
         <script>
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGFya2JveXdvbmRlciIsImEiOiI2Z0p4dHJjIn0.c__AdDJe7434_xn8ezjQCw';
             var map = new mapboxgl.Map({
@@ -22,6 +24,10 @@
                 center: [-98.5795, 39.8283],
                 zoom: 4,
             });
+
+            map.addControl(new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken
+            }));
 
             map.on('load', function () {
                 // Add a layer showing the places.
