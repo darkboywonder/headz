@@ -7,20 +7,42 @@
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
         <title>MAP</title>
+        
+        <style>
+            .map {
+                position: absolute;
+                top:0; 
+                bottom:0; 
+                left:0; 
+                right:0;
+            }
 
+            .geocoder {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+        </style>
     </head>
     <body>
-        <div id='map' style='width: 100vw; height: 100vh;'></div>
+        <div id='map' style='position: absolute; top:0; bottom:0; left:0; right:0'></div>
+        <div id='geocoder' class="geocoder"></div>
 
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
         <script>
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGFya2JveXdvbmRlciIsImEiOiI2Z0p4dHJjIn0.c__AdDJe7434_xn8ezjQCw';
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v10',
+                style: 'mapbox://styles/darkboywonder/cjj091uos0cet2rqoy587r1qq',
                 center: [-98.5795, 39.8283],
-                zoom: 4,
+                 zoom: 4.4,
+            });
+
+            var geocoder = new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken
             });
 
             map.on('load', function () {
@@ -67,6 +89,8 @@
             map.on('mouseleave', 'places', function () {
                 map.getCanvas().style.cursor = '';
             });
+
+            document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
         </script>
     </body>
 </html>
