@@ -27,6 +27,9 @@ Route::get('/map.json', function () {
     ]);
 });
 
+Route::get('barbershops/create', 'BarbershopController@create')->name('barbershops.create');
+Route::post('barbershops', 'BarbershopController@store')->name('barbershops');
+
 // Route::prefix('barbers')->group(function () {
 //     Route::post('', 'BarbersController@store')->name('barber.store');
 //     Route::get('register', 'BarbersController@register')->name('barber.register');

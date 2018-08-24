@@ -20,6 +20,15 @@
                 right:0;
             }
 
+            .add-location-button {
+                position: absolute;
+                top: 1em;
+                right: 1em;
+                width: 10em;
+                height: 2em;
+                z-index: 1;
+            }
+
             .geocoder {
                 position: absolute;
                 top: 20px;
@@ -28,8 +37,16 @@
         </style>
     </head>
     <body>
-        <div id='map' style='position: absolute; top:0; bottom:0; left:0; right:0'></div>
+        <div id='map' style='position: absolute; top:0; bottom:0; left:0; right:0'>
+            <a href="{{ route('barbershops.create') }}" class="add-location-button">Add Location</a>
+        </div>
         <div id='geocoder' class="geocoder"></div>
+
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
 
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
         <script>
